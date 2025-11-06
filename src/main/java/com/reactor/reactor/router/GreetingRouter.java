@@ -22,8 +22,7 @@ public class GreetingRouter {
         return RouterFunctions
                 .route(RequestPredicates.GET("/"), greetingHandler::hello)
                 .andRoute(RequestPredicates.GET("/users").and(accept), greetingHandler::users)
-                .andRoute(RequestPredicates.GET("/admin"), greetingHandler::admin)
-                .andRoute(RequestPredicates.GET("/logout"), greetingHandler::logout);
+                .andRoute(RequestPredicates.GET("/admin"), greetingHandler::admin);
 
     }
 }

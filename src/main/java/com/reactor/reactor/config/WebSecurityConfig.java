@@ -43,16 +43,13 @@ public class WebSecurityConfig {
 
         return http.csrf(csrf -> csrf.disable())
                 .authorizeExchange(exchange ->
-                        exchange.pathMatchers("/", "/registration", "/logout")
+                        exchange.pathMatchers("/", "/registration")
                                 .permitAll()
                                 .pathMatchers("/users").hasRole("User")
                                 .pathMatchers("/admin").hasRole("Admin")
                                 .anyExchange().authenticated()
                 )
                 .formLogin(withDefaults())
-                .logout(logout -> logout
-                        .logoutUrl("/logout")
-                )
                 .authenticationManager(authenticationManager())
                 .build();
     }

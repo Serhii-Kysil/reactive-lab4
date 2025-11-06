@@ -40,11 +40,5 @@ public class GreetingHandler {
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(users, User.class);
     }
-
-    public Mono<ServerResponse> logout(ServerRequest request) {
-        return ServerResponse
-                .temporaryRedirect(java.net.URI.create("/login?logout"))
-                .build();
-    }
 }
 
